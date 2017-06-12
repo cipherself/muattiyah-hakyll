@@ -15,7 +15,7 @@ So, you substitute \( n \) for \( 10 \) and you get \[ \frac{10(10+1)}{2} = \fra
 Lo and Behold, it's the right answer. Go ahead and try it for other values of \( n \) yourself, see if it works.
 
 So it works for the couple of instances that you've tried, but how do we know it works for the first 1024 natural numbers
-i.e. \( n=1,2,3,...,1024 \) or for \( n=50000 \). It seems implausible to actually try it for all instances of \( n \).
+i.e. \( 1,2,3,...,1024 \) or for \( n=50000 \). It seems implausible to actually try it for all instances of \( n \).
 And even if we tried it for \( n \) up to \( 50000 \), we only know it works thus far, how do we know whether it works
 for \( n=50001, n=50002, ... etc \) especially given the fact that the set of [[https://en.wikipedia.org/wiki/Natural_number][Natural Numbers]] \( \mathbb{N} \) is [[https://en.wikipedia.org/wiki/Countable_set][Countably Infinite]].
 
