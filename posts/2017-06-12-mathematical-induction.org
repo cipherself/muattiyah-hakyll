@@ -45,7 +45,7 @@ Informally:
 5. Repeat ad infinitum, can climb any step.
 
 ** Outline for a proof by induction
-A proof by induction will involves the following steps:
+A proof by induction will involve the following steps:
 1. Prove that the statement where \( n=1 \) is true, this is called the *Base Case* [fn:2], we'll refer to this statement as \( S_1 \).
 2. Prove that when \( n\geq1 \), the statement \( S_n \implies S_{n+1} \) is true.[fn:3] [fn:4] This is called the *Inductive Step* [fn:5].
 After we've completed these two steps, we say that it follows by /Mathematical Induction/ that every \( S_n \) is true.
