@@ -1,0 +1,167 @@
+* {
+		-webkit-box-sizing	: border-box;
+    -moz-box-sizing			: border-box;
+    box-sizing					: border-box;
+}
+
+/* NOTE
+html is set to 62.5% so that all the REM measurements throughout
+are based on 10px sizing. So basically 1.5rem = 15px */
+html {
+		font-size: 62.5%;
+		font-family: 'Crimson Text', serif;
+}
+
+body {
+		width: 50%;
+		margin: 0 auto;
+}
+
+header {
+		margin-top: 2%;
+		height: 10%;
+		display: flex;
+		flex-wrap: nowrap;
+		justify-content: center;
+		align-items: center;
+}
+
+hr {
+		border-style: solid;
+}
+
+footer {
+		margin: 0 auto;
+		width: 50%;
+		font-family: 'Vidaloka', serif;
+		font-weight: bold;
+		font-size: 1.5rem;
+		text-align: center;
+}
+
+footer > a {
+		padding: 3%;
+}
+
+p::selection {
+		background-color: #fd8d8d;
+}
+
+#logo {
+		width: 70px;
+}
+
+#logo:hover {
+		fill: red;
+}
+
+a:link {
+		color: #5a8eba;
+}
+
+a:hover {
+		color: red;
+}
+
+#home {
+		width: 70%;
+		margin: 0 auto;
+		text-align: center;
+}
+
+h1,h2,h3,h4,h5,h6 {
+		font-family: 'Vidaloka', serif;
+}
+
+h1 {
+		font-size: 4.5rem;
+}
+
+h2 {
+		font-size: 4.2rem;
+		color: #C50528;
+}
+
+h3 {
+		font-size: 3.4rem;
+		color: darkblue;
+}
+
+h4 {
+		font-size: 3rem;
+}
+
+p {
+		font-family: 'Crimson Text', serif;
+		font-size: 2rem;
+		line-height: 2.5rem;
+}
+
+ol {
+		font-size: 1.75rem;
+}
+
+.social {
+		font-size: 1.5rem;
+		line-height: 20%;
+}
+
+.postlist {
+		text-align: left;
+		line-height: 1.5rem;
+}
+
+.postlist > table {
+		width: 100%;
+		display: flex;
+		justify-content: flex-start;
+}
+
+.postlist > table > tbody {
+		width: 100%;
+}
+
+.postlist-date {
+		font-family: 'Crimson Text', serif;
+		font-size: 1.5rem;
+		text-align: right;
+}
+
+.postlist-title {
+		font-family: 'Crimson Text', serif;
+		font-weight: bold;
+		font-size: 2.25rem;
+		text-decoration: none;
+}
+
+.post-title {
+		margin-bottom: 0;
+}
+
+.info {
+		font-size: 1.5rem;
+		font-weight: bold;
+		font-style: italic;
+		color: #a2a0a0;
+}
+
+
+@media screen and (max-width:768px) {
+		body {
+				width: 90%;
+		}
+		#home {
+				width:80%;
+		}
+		.social {
+				font-size: 1.5rem;
+		}
+
+		.postlist-date {
+				font-size: 1rem;
+		}
+
+		.postlist-title {
+				font-size: 1.5rem;
+		}
+}

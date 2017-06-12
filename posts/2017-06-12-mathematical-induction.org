@@ -1,0 +1,150 @@
+---
+title: Mathematical Induction
+mathcss: enable
+mathjax: enable
+---
+Suppose you want to sum up the first \( 10 \) natural numbers \( 1,2,3,... \)
+
+The most obvious way to do it would be to add the numbers consecutively like so:
+\[ 1+2+3+4+5+6+7+8+9+10=55 \]
+No big deal, but now you want to sum the first \( 1000 \) natural numbers i.e. \( 1,2,3,...,1000\).
+While you're carrying out this laborious task, your friend *Hypatia* passes by and tells you with a confused look
+"Why are you doing all that? You can just use this formula:" \[ \frac{n(n+1)}{2} \]
+Skeptical, you give it a try on the first \( 10 \) natural numbers, because you already know the answer to that.
+So, you substitute \( n \) for \( 10 \) and you get \[ \frac{10(10+1)}{2} = \frac{110}{2} = 55 \]
+Lo and Behold, it's the right answer. Go ahead and try it for other values of \( n \) yourself, see if it works.
+
+So it works for the couple of instances that you've tried, but how do we know it works for the first 1024 natural numbers
+i.e. \( n=1,2,3,...,1024 \) or for \( n=50000 \). It seems implausible to actually try it for all instances of \( n \).
+And even if we tried it for \( n \) up to \( 50000 \), we only know it works thus far, how do we know whether it works
+for \( n=50001, n=50002, ... etc \) especially given the fact that the set of [[https://en.wikipedia.org/wiki/Natural_number][Natural Numbers]] \( \mathbb{N} \) is [[https://en.wikipedia.org/wiki/Countable_set][Countably Infinite]].
+
+If you don't know what the last couple of phrases mean, think of it this way, if we start with the number \( 1 \) and add \( 1 \) to it
+and keep adding \( 1 \) to the sum, you will always get a new natural number. For example, \( 1+1=2,\quad  2+1=3,\quad  3+1=4 \) and so on.
+
+Obviously our manual method of verifying the technique's applicability on single instances of \( n \) is incapable of convincing us
+of the applicability of the rule for any \( n \) and we need a new method to do just that, that method is *Mathematical Induction*.
+
+** Definition
+*/Mathematical Induction/* is a general way to prove that some statement about the natural number \( n \) is true for all \( n \geq 1 \).[fn:1]
+
+A proof by induction invloves first proving that we want to prove holds for \( n=1 \) and then proving that if it holds for *any* \( n \) then it
+holds for \( n+1 \).
+
+** Analogy
+As a helpful analogy, think of the process of climbing a ladder, we will prove that we can climb the first step, then we will prove
+that if we can climb *any* step then we can climb the step that's after it. Now we know that we can climb the first step and we
+know that we can climb any step after it. Symbolically, think of the first step as saying that \( n=1 \), think of *any*
+step as \( n \) and think of the step that follows *any* step as \( n+1 \).
+
+Informally:
+1. Can climb first step \( n=1 \).
+2. If we can climb step \( n \) then we can climb step \( n+1 \).
+3. Let \( n \) be \( 1 \), we can already climb the first step, let \( n+1 \) be \( 1+1=2 \), we can climb the second step.
+4. Let \( n \) be \( 2 \), we know we can climb it from item =3=, so we can climb the \( n+1 \) step which is the third step.
+5. Repeat ad infinitum, can climb any step.
+
+** Outline for a proof by induction
+A proof by induction will involves the following steps:
+1. Prove that the statement where \( n=1 \) is true, this is called the *Base Case* [fn:2], we'll refer to this statement as \( S_1 \).
+2. Prove that when \( n\geq1 \), the statement \( S_n \implies S_{n+1} \) is true.[fn:3] [fn:4] This is called the *Inductive Step* [fn:5].
+After we've completed these two steps, we say that it follows by /Mathematical Induction/ that every \( S_n \) is true.
+
+** Proof Sketch for our Summation Technique
+We will first start by proving the *Base Case*, in our case this means proving that the technique holds for \( n=1 \). Again, we will refer
+to this statement as \( S_1 \).
+
+We will then proceed to the *Inductive Step*, proving that \[ S_n \implies S_{n+1} \]
+In our case, this means proving that \[ \frac{n(n+1)}{2} \implies \frac{n+1((n+1)+1)}{2} \]
+
+** Proof
+*Base Case:* When \( n=1 \), our formula expands to \[ \frac{1(1+1)}{2} \] which evaluates to \( 1 \) and is true.
+
+*Inductive Step:* Assume that our formula \( S_n \) is true, this means that \[ 1+2+3+...+n = \frac{n(n+1)}{2} \] is true.
+This is called the *Induction Hypothesis*.
+We now have to show that \( S_{n+1} \) is true, algebraically this means that \[ (1+2+3+...+n)+(n+1) = \frac{n+1((n+1)+1)}{2} \]
+Let's start with the left hand side \[ (1+2+3+...+n)+(n+1) \]
+Since we've already assumed that S_n \[ 1+2+3+...+n = \frac{n(n+1)}{2} \] is true, we can substitute it in the left hand side like so:
+\[
+\begin{align}
+	(1+2+3+...+n)+(n+1) & = \frac{n(n+1)}{2} + n+1\\
+	& = \frac{n(n+1)+2(n+1)}{2}\\
+	& = \frac{n^2+n+2n+2}{2}\\
+	& = \frac{n^2+3n+2}{2}\\
+	& = \frac{(n+1)(n+2)}{2}\\
+	& = \frac{(n+1)((n+1)+1)}{2}
+\end{align}
+\]
+This shows us that \( S_{n+1} \) is indeed true if \( S_n \) is true.
+Since we've proven the *Base Case* and conducted the *Inductive Step*, our formula \[ \frac{n(n+1)}{2} \] is true for all
+numbers \( n \geq 1 \) by *Mathematical Induction*.
+#+BEGIN_EXPORT html
+<p style="text-align:right;">\( \square \)</p>
+#+END_EXPORT
+
+** Examples
+***  Proposition
+		If \( n \in \mathbb{N} \)[fn:6] then the sum of the first \( n \) odd numbers \( 1+3+5+7+...+(2n-1) \) is \( n^2 \).
+		#+BEGIN_EXPORT html
+		<h4>Proof</h4>
+		<div class="proof-body">
+		<p><b>Base Case: </b>\( S_1 = 1^2 = 1 \), our base case holds.</p>
+		<p><b>Inductive Step: </b></p>
+		<p>Assume that \( 1+3+5+7+...+(2n-1)=n^2 \)</p>
+		<p>Show that \( S_{n+1}: 1+3+5+7+...+(2(n)-1)+(2(n+1)-1)=(n+1)^2 \)</p>
+		<p>\[
+		\begin{align}
+		1+3+5+7+...+(2n-1)+(2n+1) & = n^2+2n+1\\
+		& = (n+1)(n+1)\\
+		& = (n+1)^2
+		\end{align}
+		\]</p>
+		</div>
+		#+END_EXPORT
+		Therefore, it follows by induction that \( 1+3+5+7+...+(2n-1) = n^2 \) as required.
+		#+BEGIN_EXPORT html
+		<p style="text-align:right;">\( \square \)</p>
+		#+END_EXPORT
+
+*** Proposition
+		If \( n \in \mathbb{N} \), then \( 3 | (n^3-n) \).
+		#+BEGIN_EXPORT html
+		<h4>Proof</h4>
+		<div class="proof-body">
+		<p><b>Base Case: </b>\( S_1: 1^3-1 = 0 \) and we \( 0 \) is divisible by 3, base case holds.</p>
+		<p><b>Inductive Step: </b>Assume \( 3 | n^3-n \), this mean that there exists an integer \( a \) such that
+		\( 3a = n^3-n \).</p>
+		<p>Our goal is to show that \( S_{n+1} \) holds i.e. \( 3 | (n+1)^3 - (n+1) \)</p>
+		<p>\[
+		\begin{align}
+		(n+1)^3 - (n+1) & = n^3+3n^2+3n+1-n-1\\
+		& = n^3+3n^2+3n-n\\
+		& = (n^3-n)+3n^2+3n\\
+		& = 3a + 3n^2 + 3n\\
+		& = 3(a+n^2+n)
+		\end{align}
+		\]</p>
+		</div>
+		#+END_EXPORT
+		It follows by induction that \( 3|(n^3-n) \).
+		#+BEGIN_EXPORT html
+		<p style="text-align:right;">\( \square \)</p>
+		#+END_EXPORT
+
+** Exercises
+*** Exercise
+		If \( n \) is a non-negative integer, then \( 5 | (n^5-n) \).
+
+*** Exercise
+		If \( n \in \mathbb{Z} \) and \( n \geq 0 \), then \[ \sum_{i=0}^{n} i.i! = (n+1)!-1 \]
+
+*** Exercise
+		For every Natural Number \( n \), \( 2^0 + 2^1 + 2^2 + ... + 2^n = 2^{n+1}-1 \).
+
+** Footnotes
+[fn:1] Induction is actually more general than this, it can work on any collection which obeys the [[https://en.wikipedia.org/wiki/Well-ordering_principle][Well-Ordering Principle]].
+[fn:2] This is sometimes referred to as the *Basis*.
+[fn:3] Read this as "\( S_n \) implies \( S_{n+1} \)".
+[fn:4] I am gradually introducing notation to get you used to it, if you find it confusing, revisit the [[#definition]] and read this again.
+[fn:5] This is sometimes referred to as the *Induction Step*.
+[fn:6] Read this as "\( n \) belongs to the set \( \mathbb{N} \) of /Natural Numbers/".
