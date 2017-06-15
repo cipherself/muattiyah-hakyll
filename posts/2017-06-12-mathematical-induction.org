@@ -55,14 +55,14 @@ We will first start by proving the *Base Case*, in our case this means proving t
 to this statement as \( S_1 \).
 
 We will then proceed to the *Inductive Step*, proving that \[ S_n \implies S_{n+1} \]
-In our case, this means proving that \[ \frac{n(n+1)}{2} \implies \frac{n+1((n+1)+1)}{2} \]
+In our case, this means proving that \[ \frac{n(n+1)}{2} \implies \frac{(n+1)((n+1)+1)}{2} \]
 
 ** Proof
 *Base Case:* When \( n=1 \), our formula expands to \[ \frac{1(1+1)}{2} \] which evaluates to \( 1 \) and is true.
 
 *Inductive Step:* Assume that our formula \( S_n \) is true, this means that \[ 1+2+3+...+n = \frac{n(n+1)}{2} \] is true.
 This is called the *Induction Hypothesis*.
-We now have to show that \( S_{n+1} \) is true, algebraically this means that \[ (1+2+3+...+n)+(n+1) = \frac{n+1((n+1)+1)}{2} \]
+We now have to show that \( S_{n+1} \) is true, algebraically this means that \[ (1+2+3+...+n)+(n+1) = \frac{(n+1)((n+1)+1)}{2} \]
 Let's start with the left hand side \[ (1+2+3+...+n)+(n+1) \]
 Since we've already assumed that S_n \[ 1+2+3+...+n = \frac{n(n+1)}{2} \] is true, we can substitute it in the left hand side like so:
 \[
