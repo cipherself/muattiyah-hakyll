@@ -3,6 +3,7 @@
 import           Data.Monoid (mappend)
 import           Hakyll
 
+import           Text.Pandoc
 
 --------------------------------------------------------------------------------
 main :: IO ()
@@ -17,7 +18,7 @@ main = hakyll $ do
 
     match "posts/*" $ do
         route $ setExtension "html"
-        compile $ pandocCompiler
+        compile $ myPandocCompiler
             >>= loadAndApplyTemplate "templates/post.html"    postCtx
             >>= saveSnapshot "content"
             >>= loadAndApplyTemplate "templates/default.html" postCtx
@@ -70,3 +71,19 @@ myFeedConfiguration = FeedConfiguration
     , feedAuthorEmail = "muattiyah@gmail.com"
     , feedRoot        = "http://muattiyah.com"
     }
+
+
+myHakyllReaderOptions :: ReaderOptions
+myHakyllReaderOptions = def
+  {
+    readerSmart = False
+  }
+
+myHakyllWriterOptions :: WriterOptions
+myHakyllWriterOptions = def
+  {
+    writerHighlight = False
+  }
+
+myPandocCompiler :: Compiler (Item String)
+myPandocCompiler = pandocCompilerWith myHakyllReaderOptions myHakyllWriterOptions
