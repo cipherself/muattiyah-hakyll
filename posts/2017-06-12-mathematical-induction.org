@@ -26,6 +26,9 @@ Obviously our manual method of verifying the technique's applicability on single
 of the applicability of the rule for any \( n \) and we need a new method to do just that, that method is *Mathematical Induction*.
 
 ** Definition
+:PROPERTIES:
+:CUSTOM_ID: definition
+:END:
 */Mathematical Induction/* is a general way to prove that some statement about the natural number \( n \) is true for all \( n \geq 1 \).[fn:1]
 
 A proof by induction involves first proving that we want to prove holds for \( n=1 \) and then proving that if it holds for *any* \( n \) then it
