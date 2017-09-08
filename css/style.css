@@ -52,15 +52,15 @@ p::selection {
 }
 
 #logo:hover {
-		fill: red;
+		fill: #e91e63;
 }
 
 a:link {
-		color: #5a8eba;
+		color: #e91e63;
 }
 
 a:hover {
-		color: red;
+		text-shadow: 1px 1px 0.4px lightgrey;
 }
 
 #home {
