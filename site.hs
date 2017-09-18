@@ -16,7 +16,7 @@ main = hakyll $ do
         route   idRoute
         compile copyFileCompiler
 
-    match "posts/*" $ do
+    match "posts/*.org" $ do
         route $ setExtension "html"
         compile $ myPandocCompiler
             >>= loadAndApplyTemplate "templates/post.html"    postCtx
@@ -30,7 +30,6 @@ main = hakyll $ do
             posts <- recentFirst =<< loadAll "posts/*"
             let indexCtx =
                     listField "posts" postCtx (return posts) `mappend`
-                    constField "title" "Home"                `mappend`
                     defaultContext
 
             getResourceBody
