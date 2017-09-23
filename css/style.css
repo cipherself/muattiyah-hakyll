@@ -134,6 +134,10 @@ ol {
 		text-decoration: none;
 }
 
+.postlist-banner {
+		width: 100%;
+}
+
 .post-title {
 		margin-bottom: 0;
 }
