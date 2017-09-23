@@ -169,3 +169,13 @@ ol {
 				font-size: 1.5rem;
 		}
 }
+
+@media print {
+		body {
+				width: 90%;
+		}
+
+		footer {
+				display: none;
+		}
+}
