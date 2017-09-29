@@ -55,6 +55,18 @@ main = hakyll $ do
                 loadAllSnapshots "posts/*" "content"
             renderRss myFeedConfiguration feedCtx posts
 
+    create ["sitemap.xml"] $ do
+        route idRoute
+        compile $ do
+            posts <- recentFirst =<< loadAll "posts/*"
+            let sitemapCtx =
+                    listField "posts" postCtx (return posts) `mappend`
+                    defaultContext
+
+            makeItem ""
+              >>= loadAndApplyTemplate "templates/sitemap.xml" sitemapCtx
+
+
 --------------------------------------------------------------------------------
 postCtx :: Context String
 postCtx =
