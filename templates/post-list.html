@@ -1,6 +1,8 @@
 <table>
   $for(posts)$
-	<a href="$url$"><img class="postlist-banner" src="$banner$" alt="$title$"></a>
-	<br />
+	<tr>
+		<td class="postlist-date">$date$</td>
+		<td><a class="postlist-title" href="$url$">$title$</a></td>
+	</tr>
   $endfor$
 </table>
